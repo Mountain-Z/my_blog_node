@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #wrapper {
+      height: 50px;
+      background-color: rgb(126, 126, 126);
+
+    }
+
+    .tarbar {
+      width: 800px;
+      margin: 0 auto;
+      line-height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .tarbar a {
+      text-decoration: none;
+      color: #fff;
+    }
+  </style>
+  <style>
+    .Awrapper {
+      width: 1000px;
+      height: 710px;
+      margin: 20px auto 0;
+      background-color: #fff;
+      border: 2px solid black;
+      overflow: hidden;
+    }
+
+    .title,
+    .content,
+    .discription {
+      display: block;
+      width: 980px;
+      resize: none;
+      border: none;
+      outline: none;
+    }
+
+    .title {
+      text-align: center;
+      padding: 10px;
+      height: 30px;
+      font-size: 20px;
+
+      border-bottom: 2px solid black;
+    }
+
+    .content {
+      padding: 10px 10px 0px 10px;
+      font-size: 16px;
+      height: 320px;
+    }
+
+    .discription {
+      padding: 10px;
+      font-size: 16px;
+      border-bottom: 2px solid black;
+      height: 40px;
+    }
+
+    .editToll {
+      height: 40px;
+      background-color: rgb(145, 145, 145);
+      border-width: 2px 0;
+      border-color: rgb(87, 87, 87);
+      border-style: solid;
+    }
+
+    .foot {
+      padding-top: 1px;
+      background-color: rgb(218, 218, 218);
+      padding-left: 3%;
+      height: 300px;
+    }
+
+    .submit {
+      width: 100px;
+      height: 50px;
+      margin-top: 10px;
+    }
+
+
+    .submit input {
+      width: 100px;
+      height: 50px;
+      background-color: rgb(238, 145, 23);
+      outline: none;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .submit input:hover {
+      cursor: pointer;
+    }
+
+    .author {
+      height: 30px;
+      line-height: 35px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header>
+    <div id="wrapper">
+      <div class="tarbar">
+        <div class='home'>
+          <a href="/home">博客管理</a>
+        </div>
+        <div class='category'>
+          <a href="/category">分类管理</a>
+        </div>
+        <div class='label'>
+          <a href="/label">标签管理</a>
+        </div>
+        <div class='userInfo'>
+          <a href="/userInfo">个人信息管理</a>
+        </div>
+        <div class="article">
+          <a href="/home/editArticle">写文章</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="Awrapper">
+
+    <form action="/home/editArticle/doarticle" id='article' method="POST">
+
+      <!-- <div class='editToll'>
+      </div> -->
+      <textarea name="title" form="article" maxlength="30" placeholder='请输入标题(最多30个字符)' class='title'
+        required></textarea>
+      <textarea name="discription" form="article" placeholder='请输入描述文本...' class='discription' required></textarea>
+      <textarea name="content" form="article" placeholder='请输入文本内容...' class='content'></textarea>
+
+      <div class="foot">
+        <h3>请选择文章分类</h3>
+        <input name='category' id="c1" type="radio" value="turios"> <label for="c1">其它教程</label>
+        <input name='category' id='c2' type="radio" value="learn"> <label for="c2">学习</label>
+        <input name='category' id='c3' type="radio" value="journey"> <label for="c3">旅行记录</label>
+        <input name='category' id='c4' type="radio" value="sorce"> <label for="c4">资源分享</label>
+        <h3>请选择文章标签</h3>
+        <input name='label' id='n1' type="checkbox" value="note"><label for="n1">笔记</label>
+        <input name='label' id='n2' type="checkbox" value="tutorials"><label for="n2">教程</label>
+        <input name='label' id='n3' type="checkbox" value="learn"><label for="n3">学习</label>
+        <input name='label' id='n4' type="checkbox" value="sorce"><label for="n4">资源</label>
+        <input name='label' id='n5' type="checkbox" value="scenery"><label for="n5">风景</label>
+
+        <div class="author">
+          <span>作者：</span><input type="text" name="author">
+        </div>
+        <div class="submit">
+          <input type="submit" value="提交文章" required>
+        </div>
+
+      </div>
+
+    </form>
+  </div>
+
+</body>
+
+</html>

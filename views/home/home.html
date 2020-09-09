@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+
+    #wrapper {
+      height: 50px;
+      background-color: rgb(126, 126, 126);
+
+    }
+
+    .tarbar {
+      width: 800px;
+      margin: 0 auto;
+      line-height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .tarbar a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+
+    .table {
+      width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      border: 0.5px solid black;
+      border-spacing: 0;
+
+    }
+
+    .table th {
+      margin: 0;
+      padding: 0;
+      border: 0.5px solid black;
+
+    }
+
+    .table td {
+      margin: 0;
+      padding: 0;
+      border: 0.5px solid black;
+
+    }
+
+    .ta_title {
+      width: 250px;
+      text-overflow: ellipsis;
+    }
+
+    .showAdmin {
+      width: 1000px;
+      margin: 10px auto;
+    }
+
+    #foot {
+      /* position: absolute; */
+      margin-top: 17.8%;
+      height: 300px;
+
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div id="wrapper">
+      <div class="tarbar">
+        <div class='home'>
+          <a href="/home">博客管理</a>
+        </div>
+        <div class='category'>
+          <a href="/category">分类管理</a>
+        </div>
+        <div class='label'>
+          <a href="/label">标签管理</a>
+        </div>
+        <div class='userInfo'>
+          <a href="/userInfo">个人信息管理</a>
+        </div>
+        <div class="article">
+          <a href="/home/editArticle">写文章</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <tbody>
+    <div class="showAdmin">
+
+      {{if list.length > 0}}
+      <table class="table">
+        <tr>
+          <th class="ta_num">编号</th>
+          <th class="ta_title">标题</th>
+          <th></th>
+          <th></th>
+        </tr>
+        {{each list}}
+        <tr>
+          <td>{{$value.blogsId}}</td>
+          <td>{{$value.title}}</td>
+          <td>
+            <a href="/home/delete?blogsId={{@$value.blogsId}}">删除</a>
+          </td>
+          <td><a href="/home/detail">详情</a></td>
+        </tr>
+        {{/each}}
+      </table>
+
+      {{else if list.length==0}}
+      <a href="/home/editArticle">写文章</a>
+      {{/if}}
+    </div>
+
+  </tbody>
+
+
+
+  <div id="footer" style="position: relative;">
+    <div id='foot'></div>
+  </div>
+
+
+
+</body>
+
+
+
+</html>
